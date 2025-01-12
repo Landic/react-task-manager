@@ -1,0 +1,23 @@
+body {
+    background-color: #1a1a2e;
+    color: #a4a4ea;
+    font-family:sans-serif;
+}
+.task-card {
+    background-color: #24243e;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s, background-color 0.3s;
+    color: #9a9ac3;
+}
+.task-card:hover {
+    transform: scale(1.025);
+    background-color: #2d2d4a;
+}
+.task-card:active { transform: scale(0.975); }
+.icon { color: #ff6b6b; }
+h1 { color: #a4a4ea; }
+p {
+    font-size: 0.9rem;
+    color: #cbcbf6;
+}
