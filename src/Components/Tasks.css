@@ -1,0 +1,55 @@
+body {
+    background-color: #1a1a2e;
+    color: #a4a4ea;
+    font-family:sans-serif;
+}
+.task-card {
+    background-color: #24243e;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s, background-color 0.3s;
+    color: #9a9ac3;
+}
+.task-card:hover {
+    transform: scale(1.025);
+    background-color: #2d2d4a;
+}
+.task-card:active { transform: scale(0.975); }
+.icon { color: #ff6b6b; }
+h1 { color: #a4a4ea; }
+p {
+    font-size: 0.9rem;
+    color: #cbcbf6;
+}
+.crud-panel {
+    background-color: #2d2d4a;
+    color: #cbcbf6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+}
+.crud-panel button {
+    background-color: #4e4e8f;
+    color: #cbcbf6;
+    font-size:1.1em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition:.15s;
+}
+.crud-panel button:hover {
+    background-color: #6b6bbf;
+    color: #fff;
+}
+.crud-panel button:active { transform:scale(0.975); }
+.crud-panel .close-btn {
+    background-color: #944141;
+    color: #fff;
+}
+.crud-panel .close-btn:hover {
+    background-color: #ae4c4c;
+    color: #fff;
+}
