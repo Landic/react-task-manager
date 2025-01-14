@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import './GlobalStyles.css';
 
 const Auth = ({ onAuth, type }) => {
   const [username, setUsername] = useState("");
@@ -9,33 +7,50 @@ const Auth = ({ onAuth, type }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = type === "login" ? "http://localhost:8080/api/auth/login" : "http://localhost:8080/api/auth/register";
-
+    const url = `http://localhost:8080/api/auth/${type === "login" ? "login" : "register"}`;
+  
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ username, password }),
       });
-
+  
+      const text = await response.text();
       if (!response.ok) {
-        throw new Error(await response.text());
+        throw new Error(text);
       }
-
-      const result = await response.text();
-      setMessage(result);
-      if (type === "login") onAuth(username); // Если логин успешен, передаем имя пользователя родителю
+  
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch {
+        result = { message: text };
+      }
+  
+      setMessage(result.message || "Success");
+      
+      // Перенаправление после успешного действия
+      if (type === "login") {
+        onAuth(username);
+        window.location.href = "/tasks"; // Переход при логине
+      } else {
+        // Переход после регистрации
+        setTimeout(() => {
+          window.location.href = "/tasks";
+        }, 1000); // Можно добавить небольшую задержку для отображения сообщения
+      }
     } catch (error) {
-      setMessage(error.message || "Ошибка");
+      setMessage(error.message || "Error");
     }
   };
 
   return (
-    <div>
-      <h2>{type === "login" ? "Вход" : "Регистрация"}</h2>
+    <div className="block-registration">
+      <h2>{type === "login" ? "Log in" : "Sign up"}</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Имя пользователя:</label>
+          <label>Login</label>
           <input
             type="text"
             value={username}
@@ -44,7 +59,7 @@ const Auth = ({ onAuth, type }) => {
           />
         </div>
         <div>
-          <label>Пароль:</label>
+          <label>Password</label>
           <input
             type="password"
             value={password}
@@ -52,7 +67,7 @@ const Auth = ({ onAuth, type }) => {
             required
           />
         </div>
-        <button type="submit"><Link to='/main'>{type === "login" ? "Войти" : "Зарегистрироваться"}</Link></button>
+        <button type="submit">{type === "login" ? "Log in" : "Sign up"}</button>
       </form>
       {message && <p>{message}</p>}
     </div>
