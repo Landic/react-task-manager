@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import './GlobalStyles.css';
 
 const Auth = ({ onAuth, type }) => {
   const [username, setUsername] = useState("");
