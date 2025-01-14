@@ -93,3 +93,80 @@ body::-webkit-scrollbar-track { background-color: #1a1a2e; }
 }
 .mybut:hover { transform: scale(0.98); }
 .mybut:active { transform: scale(1.02); }
+
+
+.block-registration {
+    background-color: #24243e; /* Темный фон */
+    color: #fff; /* Белый текст */
+    padding: 2rem;
+    border-radius: 0.5rem; /* Округлые углы */
+    max-width: 400px;
+    margin: 2rem auto; /* Центрирование блока */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.block-registration h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #a4a4ea;;
+  margin-bottom: 1.5rem;
+}
+
+.block-registration form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.block-registration form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.block-registration form div label {
+  font-size: 0.9rem;
+  color: #b5b5b5; /* Светло-серый текст */
+}
+
+.block-registration form div input {
+  padding: 0.75rem;
+  border-radius: 0.4rem;
+  border: 1px solid #3a3f57;
+  background-color: #2a2d47;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.block-registration form div input:focus {
+  outline: none;
+  border-color: #5e81ff; /* Цвет выделения */
+}
+
+.block-registration form button {
+  background-color: #5e81ff;
+  color: #e3e3ff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.block-registration form button:hover {
+  background-color: #3e61d1;
+}
+
+.block-registration form button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.block-registration p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ff6b6b; /* Цвет сообщения об ошибке */
+}
